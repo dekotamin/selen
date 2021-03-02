@@ -1,1 +1,1 @@
-# Project Sample 
+# Project Sample [![Build status](https://ci.appveyor.com/api/projects/status/urk89eorj9sjmad7/branch/master?svg=true)](https://ci.appveyor.com/project/dekotamin/selen/branch/master)
