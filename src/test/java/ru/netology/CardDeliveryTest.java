@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.*;
 
 class CardDeliveryTest {
@@ -18,7 +17,6 @@ class CardDeliveryTest {
     @Test
     void shouldRegisterByDelivery() {
         open("http://localhost:9999");
-        //SelenideElement form = $("form");
         $("[data-test-id=city] input").setValue("Казань");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(inputDate);
@@ -33,7 +31,6 @@ class CardDeliveryTest {
     @Test
     void shouldNotRegisterIncorrectDate() {
         open("http://localhost:9999");
-        //SelenideElement form = $("form");
         $("[data-test-id=city] input").setValue("Казань");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(inputDate="05.03.2021");
@@ -47,7 +44,6 @@ class CardDeliveryTest {
     @Test
     void shouldNotRegisterIncorrectName() {
         open("http://localhost:9999");
-        //SelenideElement form = $("form");
         $("[data-test-id=city] input").setValue("Казань");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(inputDate);
@@ -61,7 +57,6 @@ class CardDeliveryTest {
     @Test
     void shouldNotRegisterIncorrectNumber() {
         open("http://localhost:9999");
-        //SelenideElement form = $("form");
         $("[data-test-id=city] input").setValue("Казань");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(inputDate);
@@ -75,7 +70,6 @@ class CardDeliveryTest {
     @Test
     void shouldNotRegisterIncorrectCity() {
         open("http://localhost:9999");
-        //SelenideElement form = $("form");
         $("[data-test-id=city] input").setValue("Набережные Челны");
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(inputDate);
@@ -83,6 +77,6 @@ class CardDeliveryTest {
         $("[data-test-id=phone] input").setValue("+79110000000");
         $("[data-test-id=agreement]").click();
         $(byText("Забронировать")).click();
-        $("[data-test-id='city'] .input__sub").shouldHave(Condition.exactText("Доставка в выбранный город недоступна."));
+        $("[data-test-id='city'] .input__sub").shouldHave(Condition.exactText("Доставка в выбранный город недоступна"));
     }
 }
